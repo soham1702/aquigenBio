@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074113",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "consumption_details",
+  "fields": [
+    {
+      "fieldName": "comsumptionDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "qtyConsumed",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ConsumptionDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "consumptionDetails",
+      "relationshipName": "securityUser",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "consumptionDetails",
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

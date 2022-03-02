@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="transfer">
+      <h2 data-cy="transferDetailsHeading"><span jhiTranslate="aquigenBioApp.transfer.detail.title">Transfer</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ transfer.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.tranferDate">Tranfer Date</span></dt>
+        <dd>
+          <span>{{ transfer.tranferDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.comment">Comment</span></dt>
+        <dd>
+          <span>{{ transfer.comment }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.isApproved">Is Approved</span></dt>
+        <dd>
+          <span>{{ transfer.isApproved }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.isRecieved">Is Recieved</span></dt>
+        <dd>
+          <span>{{ transfer.isRecieved }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'aquigenBioApp.Status.' + transfer.status }}">{{ transfer.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ transfer.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ transfer.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ transfer.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ transfer.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.transfer.productInventory">Product Inventory</span></dt>
+        <dd>
+          <div *ngIf="transfer.productInventory">
+            <a [routerLink]="['/product-inventory', transfer.productInventory?.id, 'view']">{{ transfer.productInventory?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/transfer', transfer.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

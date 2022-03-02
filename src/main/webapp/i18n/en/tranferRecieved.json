@@ -1,0 +1,34 @@
+{
+  "aquigenBioApp": {
+    "tranferRecieved": {
+      "home": {
+        "title": "Tranfer Recieveds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tranfer Recieved",
+        "createOrEditLabel": "Create or edit a Tranfer Recieved",
+        "notFound": "No Tranfer Recieveds found"
+      },
+      "created": "A new Tranfer Recieved is created with identifier {{ param }}",
+      "updated": "A Tranfer Recieved is updated with identifier {{ param }}",
+      "deleted": "A Tranfer Recieved is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tranfer Recieved {{ id }}?"
+      },
+      "detail": {
+        "title": "Tranfer Recieved"
+      },
+      "id": "ID",
+      "transferDate": "Transfer Date",
+      "qtyTransfered": "Qty Transfered",
+      "qtyReceived": "Qty Received",
+      "comment": "Comment",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "isDeleted": "Is Deleted",
+      "isActive": "Is Active",
+      "transfer": "Transfer"
+    }
+  }
+}

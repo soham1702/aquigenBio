@@ -1,0 +1,69 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074112",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "unit",
+  "fields": [
+    {
+      "fieldName": "unitName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shortName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Unit",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseOrderDetails",
+      "otherEntityRelationshipName": "unit",
+      "relationshipName": "purchaseOrderDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "unit",
+      "ownerSide": false,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "quatationDetails",
+      "otherEntityRelationshipName": "unit",
+      "ownerSide": false,
+      "relationshipName": "quatationDetails",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

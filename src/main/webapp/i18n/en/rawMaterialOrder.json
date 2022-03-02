@@ -1,0 +1,38 @@
+{
+  "aquigenBioApp": {
+    "rawMaterialOrder": {
+      "home": {
+        "title": "Raw Material Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Raw Material Order",
+        "createOrEditLabel": "Create or edit a Raw Material Order",
+        "notFound": "No Raw Material Orders found"
+      },
+      "created": "A new Raw Material Order is created with identifier {{ param }}",
+      "updated": "A Raw Material Order is updated with identifier {{ param }}",
+      "deleted": "A Raw Material Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Raw Material Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Raw Material Order"
+      },
+      "id": "ID",
+      "pricePerUnit": "Price Per Unit",
+      "quantityUnit": "Quantity Unit",
+      "quantity": "Quantity",
+      "deliveryDate": "Delivery Date",
+      "quantityCheck": "Quantity Check",
+      "orderedOn": "Ordered On",
+      "orderStatus": "Order Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "purchaseOrder": "Purchase Order",
+      "product": "Product"
+    }
+  }
+}
