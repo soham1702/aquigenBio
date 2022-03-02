@@ -1,0 +1,252 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-product-inventory-heading"
+        data-cy="ProductInventoryCreateUpdateHeading"
+        jhiTranslate="aquigenBioApp.productInventory.home.createOrEditLabel"
+      >
+        Create or edit a Product Inventory
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.inwardOutwardDate" for="field_inwardOutwardDate"
+            >Inward Outward Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_inwardOutwardDate"
+              data-cy="inwardOutwardDate"
+              type="datetime-local"
+              class="form-control"
+              name="inwardOutwardDate"
+              formControlName="inwardOutwardDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.inwardQty" for="field_inwardQty">Inward Qty</label>
+          <input type="text" class="form-control" name="inwardQty" id="field_inwardQty" data-cy="inwardQty" formControlName="inwardQty" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.outwardQty" for="field_outwardQty">Outward Qty</label>
+          <input
+            type="text"
+            class="form-control"
+            name="outwardQty"
+            id="field_outwardQty"
+            data-cy="outwardQty"
+            formControlName="outwardQty"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.totalQuanity" for="field_totalQuanity"
+            >Total Quanity</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="totalQuanity"
+            id="field_totalQuanity"
+            data-cy="totalQuanity"
+            formControlName="totalQuanity"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.pricePerUnit" for="field_pricePerUnit"
+            >Price Per Unit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="pricePerUnit"
+            id="field_pricePerUnit"
+            data-cy="pricePerUnit"
+            formControlName="pricePerUnit"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.lotNo" for="field_lotNo">Lot No</label>
+          <input type="text" class="form-control" name="lotNo" id="field_lotNo" data-cy="lotNo" formControlName="lotNo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.expiryDate" for="field_expiryDate">Expiry Date</label>
+          <div class="d-flex">
+            <input
+              id="field_expiryDate"
+              data-cy="expiryDate"
+              type="datetime-local"
+              class="form-control"
+              name="expiryDate"
+              formControlName="expiryDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.productInventory.isActive" for="field_isActive">Is Active</label>
+          <input type="checkbox" class="form-check" name="isActive" id="field_isActive" data-cy="isActive" formControlName="isActive" />
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="aquigenBioApp.productInventory.product" for="field_products">Product</label>
+          <select class="form-control" id="field_products" data-cy="product" multiple name="products" formControlName="products">
+            <option
+              [ngValue]="getSelectedProduct(productOption, editForm.get('products')!.value)"
+              *ngFor="let productOption of productsSharedCollection; trackBy: trackProductById"
+            >
+              {{ productOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="aquigenBioApp.productInventory.warehouse" for="field_warehouses">Warehouse</label>
+          <select class="form-control" id="field_warehouses" data-cy="warehouse" multiple name="warehouses" formControlName="warehouses">
+            <option
+              [ngValue]="getSelectedWarehouse(warehouseOption, editForm.get('warehouses')!.value)"
+              *ngFor="let warehouseOption of warehousesSharedCollection; trackBy: trackWarehouseById"
+            >
+              {{ warehouseOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="aquigenBioApp.productInventory.securityUser" for="field_securityUsers">Security User</label>
+          <select
+            class="form-control"
+            id="field_securityUsers"
+            data-cy="securityUser"
+            multiple
+            name="securityUsers"
+            formControlName="securityUsers"
+          >
+            <option
+              [ngValue]="getSelectedSecurityUser(securityUserOption, editForm.get('securityUsers')!.value)"
+              *ngFor="let securityUserOption of securityUsersSharedCollection; trackBy: trackSecurityUserById"
+            >
+              {{ securityUserOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

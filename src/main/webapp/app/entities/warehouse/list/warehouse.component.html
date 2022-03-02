@@ -1,0 +1,158 @@
+<div>
+  <h2 id="page-heading" data-cy="WarehouseHeading">
+    <span jhiTranslate="aquigenBioApp.warehouse.home.title">Warehouses</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.warehouse.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-warehouse"
+        [routerLink]="['/warehouse/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.warehouse.home.createLabel"> Create a new Warehouse </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="warehouses?.length === 0">
+    <span jhiTranslate="aquigenBioApp.warehouse.home.notFound">No warehouses found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="warehouses && warehouses.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="warehouseId">
+            <span jhiTranslate="aquigenBioApp.warehouse.warehouseId">Warehouse Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="whName">
+            <span jhiTranslate="aquigenBioApp.warehouse.whName">Wh Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <span jhiTranslate="aquigenBioApp.warehouse.address">Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pincode">
+            <span jhiTranslate="aquigenBioApp.warehouse.pincode">Pincode</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <span jhiTranslate="aquigenBioApp.warehouse.city">City</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="state">
+            <span jhiTranslate="aquigenBioApp.warehouse.state">State</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="country">
+            <span jhiTranslate="aquigenBioApp.warehouse.country">Country</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gSTDetails">
+            <span jhiTranslate="aquigenBioApp.warehouse.gSTDetails">G ST Details</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="managerName">
+            <span jhiTranslate="aquigenBioApp.warehouse.managerName">Manager Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="managerEmail">
+            <span jhiTranslate="aquigenBioApp.warehouse.managerEmail">Manager Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="managerContact">
+            <span jhiTranslate="aquigenBioApp.warehouse.managerContact">Manager Contact</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="contact">
+            <span jhiTranslate="aquigenBioApp.warehouse.contact">Contact</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <span jhiTranslate="aquigenBioApp.warehouse.isDeleted">Is Deleted</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isActive">
+            <span jhiTranslate="aquigenBioApp.warehouse.isActive">Is Active</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="aquigenBioApp.warehouse.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="aquigenBioApp.warehouse.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let warehouse of warehouses; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/warehouse', warehouse.id, 'view']">{{ warehouse.id }}</a>
+          </td>
+          <td>{{ warehouse.warehouseId }}</td>
+          <td>{{ warehouse.whName }}</td>
+          <td>{{ warehouse.address }}</td>
+          <td>{{ warehouse.pincode }}</td>
+          <td>{{ warehouse.city }}</td>
+          <td>{{ warehouse.state }}</td>
+          <td>{{ warehouse.country }}</td>
+          <td>{{ warehouse.gSTDetails }}</td>
+          <td>{{ warehouse.managerName }}</td>
+          <td>{{ warehouse.managerEmail }}</td>
+          <td>{{ warehouse.managerContact }}</td>
+          <td>{{ warehouse.contact }}</td>
+          <td>{{ warehouse.isDeleted }}</td>
+          <td>{{ warehouse.isActive }}</td>
+          <td>{{ warehouse.lastModified | formatMediumDatetime }}</td>
+          <td>{{ warehouse.lastModifiedBy }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/warehouse', warehouse.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/warehouse', warehouse.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(warehouse)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="warehouses && warehouses.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="purchaseOrderDetails">
+      <h2 data-cy="purchaseOrderDetailsDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.purchaseOrderDetails.detail.title">Purchase Order Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.qtyordered">Qtyordered</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.qtyordered }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.gstTaxPercentage">Gst Tax Percentage</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.gstTaxPercentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.pricePerUnit">Price Per Unit</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.pricePerUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.totalPrice">Total Price</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.totalPrice }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ purchaseOrderDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.purchaseOrder">Purchase Order</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrderDetails.purchaseOrder">
+            <a [routerLink]="['/purchase-order', purchaseOrderDetails.purchaseOrder?.id, 'view']">{{
+              purchaseOrderDetails.purchaseOrder?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.product">Product</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrderDetails.product">
+            <a [routerLink]="['/product', purchaseOrderDetails.product?.id, 'view']">{{ purchaseOrderDetails.product?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrderDetails.unit">Unit</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrderDetails.unit">
+            <a [routerLink]="['/unit', purchaseOrderDetails.unit?.id, 'view']">{{ purchaseOrderDetails.unit?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/purchase-order-details', purchaseOrderDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

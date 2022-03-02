@@ -1,0 +1,40 @@
+{
+  "aquigenBioApp": {
+    "purchaseOrder": {
+      "home": {
+        "title": "Purchase Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Purchase Order",
+        "createOrEditLabel": "Create or edit a Purchase Order",
+        "notFound": "No Purchase Orders found"
+      },
+      "created": "A new Purchase Order is created with identifier {{ param }}",
+      "updated": "A Purchase Order is updated with identifier {{ param }}",
+      "deleted": "A Purchase Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Purchase Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Purchase Order"
+      },
+      "id": "ID",
+      "totalPOAmount": "Total PO Amount",
+      "totalGSTAmount": "Total GST Amount",
+      "expectedDeliveryDate": "Expected Delivery Date",
+      "poDate": "Po Date",
+      "orderStatus": "Order Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "purchaseOrderDetails": "Purchase Order Details",
+      "goodsRecived": "Goods Recived",
+      "productInventory": "Product Inventory",
+      "warehouse": "Warehouse",
+      "securityUser": "Security User",
+      "rawMaterialOrder": "Raw Material Order"
+    }
+  }
+}

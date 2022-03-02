@@ -1,0 +1,38 @@
+{
+  "aquigenBioApp": {
+    "quatationDetails": {
+      "home": {
+        "title": "Quatation Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Quatation Details",
+        "createOrEditLabel": "Create or edit a Quatation Details",
+        "notFound": "No Quatation Details found"
+      },
+      "created": "A new Quatation Details is created with identifier {{ param }}",
+      "updated": "A Quatation Details is updated with identifier {{ param }}",
+      "deleted": "A Quatation Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Quatation Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Quatation Details"
+      },
+      "id": "ID",
+      "availabelStock": "Availabel Stock",
+      "quantity": "Quantity",
+      "ratsPerUnit": "Rats Per Unit",
+      "totalprice": "Totalprice",
+      "discount": "Discount",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "product": "Product",
+      "unit": "Unit",
+      "categories": "Categories",
+      "productQuatation": "Product Quatation"
+    }
+  }
+}
