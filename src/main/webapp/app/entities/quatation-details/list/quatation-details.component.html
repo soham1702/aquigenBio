@@ -1,0 +1,172 @@
+<div>
+  <h2 id="page-heading" data-cy="QuatationDetailsHeading">
+    <span jhiTranslate="aquigenBioApp.quatationDetails.home.title">Quatation Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.quatationDetails.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-quatation-details"
+        [routerLink]="['/quatation-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.quatationDetails.home.createLabel"> Create a new Quatation Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="quatationDetails?.length === 0">
+    <span jhiTranslate="aquigenBioApp.quatationDetails.home.notFound">No quatationDetails found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="quatationDetails && quatationDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="availabelStock">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.availabelStock">Availabel Stock</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quantity">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ratsPerUnit">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.ratsPerUnit">Rats Per Unit</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="totalprice">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.totalprice">Totalprice</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="discount">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.discount">Discount</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.freeField1">Free Field 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.freeField2">Free Field 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.freeField3">Free Field 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.freeField4">Free Field 4</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="product.id">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.product">Product</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="unit.id">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.unit">Unit</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="categories.id">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.categories">Categories</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="productQuatation.id">
+            <span jhiTranslate="aquigenBioApp.quatationDetails.productQuatation">Product Quatation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let quatationDetails of quatationDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/quatation-details', quatationDetails.id, 'view']">{{ quatationDetails.id }}</a>
+          </td>
+          <td>{{ quatationDetails.availabelStock }}</td>
+          <td>{{ quatationDetails.quantity }}</td>
+          <td>{{ quatationDetails.ratsPerUnit }}</td>
+          <td>{{ quatationDetails.totalprice }}</td>
+          <td>{{ quatationDetails.discount }}</td>
+          <td>{{ quatationDetails.freeField1 }}</td>
+          <td>{{ quatationDetails.freeField2 }}</td>
+          <td>{{ quatationDetails.freeField3 }}</td>
+          <td>{{ quatationDetails.freeField4 }}</td>
+          <td>{{ quatationDetails.lastModified | formatMediumDatetime }}</td>
+          <td>{{ quatationDetails.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="quatationDetails.product">
+              <a [routerLink]="['/product', quatationDetails.product?.id, 'view']">{{ quatationDetails.product?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="quatationDetails.unit">
+              <a [routerLink]="['/unit', quatationDetails.unit?.id, 'view']">{{ quatationDetails.unit?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="quatationDetails.categories">
+              <a [routerLink]="['/categories', quatationDetails.categories?.id, 'view']">{{ quatationDetails.categories?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="quatationDetails.productQuatation">
+              <a [routerLink]="['/product-quatation', quatationDetails.productQuatation?.id, 'view']">{{
+                quatationDetails.productQuatation?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/quatation-details', quatationDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/quatation-details', quatationDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(quatationDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="quatationDetails && quatationDetails.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "aquigenBioApp": {
+    "productQuatation": {
+      "home": {
+        "title": "Product Quatations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Product Quatation",
+        "createOrEditLabel": "Create or edit a Product Quatation",
+        "notFound": "No Product Quatations found"
+      },
+      "created": "A new Product Quatation is created with identifier {{ param }}",
+      "updated": "A Product Quatation is updated with identifier {{ param }}",
+      "deleted": "A Product Quatation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Product Quatation {{ id }}?"
+      },
+      "detail": {
+        "title": "Product Quatation"
+      },
+      "id": "ID",
+      "quatationdate": "Quatationdate",
+      "totalAmt": "Total Amt",
+      "gst": "Gst",
+      "discount": "Discount",
+      "expectedDelivery": "Expected Delivery",
+      "deliveryAddress": "Delivery Address",
+      "quoValidity": "Quo Validity",
+      "clientName": "Client Name",
+      "clientMobile": "Client Mobile",
+      "clientEmail": "Client Email",
+      "termsAndCondition": "Terms And Condition",
+      "notes": "Notes",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "securityUser": "Security User",
+      "quatationDetails": "Quatation Details"
+    }
+  }
+}

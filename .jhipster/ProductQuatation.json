@@ -1,0 +1,103 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074126",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product_quatation",
+  "fields": [
+    {
+      "fieldName": "quatationdate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "totalAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "gst",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "expectedDelivery",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "deliveryAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quoValidity",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "clientName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientMobile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "termsAndCondition",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ProductQuatation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "productQuatation",
+      "ownerSide": true,
+      "relationshipName": "securityUser",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "quatationDetails",
+      "otherEntityRelationshipName": "productQuatation",
+      "ownerSide": false,
+      "relationshipName": "quatationDetails",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

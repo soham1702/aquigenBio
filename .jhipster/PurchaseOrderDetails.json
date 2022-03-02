@@ -1,0 +1,77 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074119",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "purchase_order_details",
+  "fields": [
+    {
+      "fieldName": "qtyordered",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "gstTaxPercentage",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pricePerUnit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalPrice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "PurchaseOrderDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "purchaseOrderDetails",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "purchaseOrderDetails",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "unit",
+      "otherEntityRelationshipName": "purchaseOrderDetails",
+      "relationshipName": "unit",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

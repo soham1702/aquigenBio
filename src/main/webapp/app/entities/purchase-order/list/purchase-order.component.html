@@ -1,0 +1,175 @@
+<div>
+  <h2 id="page-heading" data-cy="PurchaseOrderHeading">
+    <span jhiTranslate="aquigenBioApp.purchaseOrder.home.title">Purchase Orders</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.purchaseOrder.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-purchase-order"
+        [routerLink]="['/purchase-order/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.purchaseOrder.home.createLabel"> Create a new Purchase Order </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="purchaseOrders?.length === 0">
+    <span jhiTranslate="aquigenBioApp.purchaseOrder.home.notFound">No purchaseOrders found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="purchaseOrders && purchaseOrders.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="totalPOAmount">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.totalPOAmount">Total PO Amount</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="totalGSTAmount">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.totalGSTAmount">Total GST Amount</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="expectedDeliveryDate">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.expectedDeliveryDate">Expected Delivery Date</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="poDate">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.poDate">Po Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="orderStatus">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.orderStatus">Order Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.freeField1">Free Field 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.freeField2">Free Field 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.freeField3">Free Field 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.freeField4">Free Field 4</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="productInventory.id">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.productInventory">Product Inventory</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="warehouse.id">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.warehouse">Warehouse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="securityUser.id">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.securityUser">Security User</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rawMaterialOrder.id">
+            <span jhiTranslate="aquigenBioApp.purchaseOrder.rawMaterialOrder">Raw Material Order</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let purchaseOrder of purchaseOrders; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/purchase-order', purchaseOrder.id, 'view']">{{ purchaseOrder.id }}</a>
+          </td>
+          <td>{{ purchaseOrder.totalPOAmount }}</td>
+          <td>{{ purchaseOrder.totalGSTAmount }}</td>
+          <td>{{ purchaseOrder.expectedDeliveryDate | formatMediumDatetime }}</td>
+          <td>{{ purchaseOrder.poDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'aquigenBioApp.Status.' + purchaseOrder.orderStatus }}">{{ purchaseOrder.orderStatus }}</td>
+          <td>{{ purchaseOrder.lastModified | formatMediumDatetime }}</td>
+          <td>{{ purchaseOrder.lastModifiedBy }}</td>
+          <td>{{ purchaseOrder.freeField1 }}</td>
+          <td>{{ purchaseOrder.freeField2 }}</td>
+          <td>{{ purchaseOrder.freeField3 }}</td>
+          <td>{{ purchaseOrder.freeField4 }}</td>
+          <td>
+            <div *ngIf="purchaseOrder.productInventory">
+              <a [routerLink]="['/product-inventory', purchaseOrder.productInventory?.id, 'view']">{{
+                purchaseOrder.productInventory?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="purchaseOrder.warehouse">
+              <a [routerLink]="['/warehouse', purchaseOrder.warehouse?.id, 'view']">{{ purchaseOrder.warehouse?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="purchaseOrder.securityUser">
+              <a [routerLink]="['/security-user', purchaseOrder.securityUser?.id, 'view']">{{ purchaseOrder.securityUser?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="purchaseOrder.rawMaterialOrder">
+              <a [routerLink]="['/raw-material-order', purchaseOrder.rawMaterialOrder?.id, 'view']">{{
+                purchaseOrder.rawMaterialOrder?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/purchase-order', purchaseOrder.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/purchase-order', purchaseOrder.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(purchaseOrder)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="purchaseOrders && purchaseOrders.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

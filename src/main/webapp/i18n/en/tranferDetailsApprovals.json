@@ -1,0 +1,34 @@
+{
+  "aquigenBioApp": {
+    "tranferDetailsApprovals": {
+      "home": {
+        "title": "Tranfer Details Approvals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tranfer Details Approvals",
+        "createOrEditLabel": "Create or edit a Tranfer Details Approvals",
+        "notFound": "No Tranfer Details Approvals found"
+      },
+      "created": "A new Tranfer Details Approvals is created with identifier {{ param }}",
+      "updated": "A Tranfer Details Approvals is updated with identifier {{ param }}",
+      "deleted": "A Tranfer Details Approvals is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tranfer Details Approvals {{ id }}?"
+      },
+      "detail": {
+        "title": "Tranfer Details Approvals"
+      },
+      "id": "ID",
+      "approvalDate": "Approval Date",
+      "qtyRequested": "Qty Requested",
+      "qtyApproved": "Qty Approved",
+      "comment": "Comment",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "isDeleted": "Is Deleted",
+      "isActive": "Is Active",
+      "transfer": "Transfer"
+    }
+  }
+}
