@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity QuatationDetails.
+    -->
+    <changeSet id="20220302122604-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="quatation_details"
+                                 constraintName="fk_quatation_details__product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+
+        <addForeignKeyConstraint baseColumnNames="unit_id"
+                                 baseTableName="quatation_details"
+                                 constraintName="fk_quatation_details__unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="categories_id"
+                                 baseTableName="quatation_details"
+                                 constraintName="fk_quatation_details__categories_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categories"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_quatation_id"
+                                 baseTableName="quatation_details"
+                                 constraintName="fk_quatation_details__product_quatation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_quatation"/>
+    </changeSet>
+</databaseChangeLog>

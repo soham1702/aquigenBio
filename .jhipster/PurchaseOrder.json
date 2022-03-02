@@ -1,0 +1,100 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302122555",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "purchase_order",
+  "fields": [
+    {
+      "fieldName": "totalPOAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalGSTAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "expectedDeliveryDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "poDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "orderStatus",
+      "fieldType": "Status",
+      "fieldValues": "REQUESTED (Requested),APPROVED (Approved),CANCELED (Canceled),RECEIVED (Received),COMPLETED (Completed)"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "PurchaseOrder",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseOrderDetails",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "purchaseOrderDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "goodsRecived",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "goodsRecived",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "warehouse",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "rawMaterialOrder",
+      "otherEntityRelationshipName": "purchaseOrder",
+      "relationshipName": "rawMaterialOrder",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

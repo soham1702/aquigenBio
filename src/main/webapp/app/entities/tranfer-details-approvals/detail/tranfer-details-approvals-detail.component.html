@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tranferDetailsApprovals">
+      <h2 data-cy="tranferDetailsApprovalsDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.detail.title">Tranfer Details Approvals</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.approvalDate">Approval Date</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.approvalDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.qtyRequested">Qty Requested</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.qtyRequested }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.qtyApproved">Qty Approved</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.qtyApproved }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.comment">Comment</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.comment }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ tranferDetailsApprovals.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.tranferDetailsApprovals.transfer">Transfer</span></dt>
+        <dd>
+          <div *ngIf="tranferDetailsApprovals.transfer">
+            <a [routerLink]="['/transfer', tranferDetailsApprovals.transfer?.id, 'view']">{{ tranferDetailsApprovals.transfer?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tranfer-details-approvals', tranferDetailsApprovals.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

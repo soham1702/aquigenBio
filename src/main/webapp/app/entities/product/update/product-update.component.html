@@ -1,0 +1,352 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-product-heading" data-cy="ProductCreateUpdateHeading" jhiTranslate="aquigenBioApp.product.home.createOrEditLabel">
+        Create or edit a Product
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.shortName" for="field_shortName">Short Name</label>
+          <input type="text" class="form-control" name="shortName" id="field_shortName" data-cy="shortName" formControlName="shortName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.chemicalFormula" for="field_chemicalFormula"
+            >Chemical Formula</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="chemicalFormula"
+            id="field_chemicalFormula"
+            data-cy="chemicalFormula"
+            formControlName="chemicalFormula"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.hsnNo" for="field_hsnNo">Hsn No</label>
+          <input type="text" class="form-control" name="hsnNo" id="field_hsnNo" data-cy="hsnNo" formControlName="hsnNo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.materialImage" for="field_materialImage">Material Image</label>
+          <input
+            type="text"
+            class="form-control"
+            name="materialImage"
+            id="field_materialImage"
+            data-cy="materialImage"
+            formControlName="materialImage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.isActive" for="field_isActive">Is Active</label>
+          <input type="checkbox" class="form-check" name="isActive" id="field_isActive" data-cy="isActive" formControlName="isActive" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.productName" for="field_productName">Product Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productName"
+            id="field_productName"
+            data-cy="productName"
+            formControlName="productName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.alertUnits" for="field_alertUnits">Alert Units</label>
+          <input
+            type="text"
+            class="form-control"
+            name="alertUnits"
+            id="field_alertUnits"
+            data-cy="alertUnits"
+            formControlName="alertUnits"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.casNumber" for="field_casNumber">Cas Number</label>
+          <input type="text" class="form-control" name="casNumber" id="field_casNumber" data-cy="casNumber" formControlName="casNumber" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.catlogNumber" for="field_catlogNumber">Catlog Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="catlogNumber"
+            id="field_catlogNumber"
+            data-cy="catlogNumber"
+            formControlName="catlogNumber"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.molecularWt" for="field_molecularWt">Molecular Wt</label>
+          <input
+            type="number"
+            class="form-control"
+            name="molecularWt"
+            id="field_molecularWt"
+            data-cy="molecularWt"
+            formControlName="molecularWt"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.molecularFormula" for="field_molecularFormula"
+            >Molecular Formula</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="molecularFormula"
+            id="field_molecularFormula"
+            data-cy="molecularFormula"
+            formControlName="molecularFormula"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.chemicalName" for="field_chemicalName">Chemical Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="chemicalName"
+            id="field_chemicalName"
+            data-cy="chemicalName"
+            formControlName="chemicalName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.structureImg" for="field_structureImg">Structure Img</label>
+          <input
+            type="text"
+            class="form-control"
+            name="structureImg"
+            id="field_structureImg"
+            data-cy="structureImg"
+            formControlName="structureImg"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.qrCode" for="field_qrCode">Qr Code</label>
+          <input type="text" class="form-control" name="qrCode" id="field_qrCode" data-cy="qrCode" formControlName="qrCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.barCode" for="field_barCode">Bar Code</label>
+          <input type="text" class="form-control" name="barCode" id="field_barCode" data-cy="barCode" formControlName="barCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.gstPercentage" for="field_gstPercentage">Gst Percentage</label>
+          <input
+            type="number"
+            class="form-control"
+            name="gstPercentage"
+            id="field_gstPercentage"
+            data-cy="gstPercentage"
+            formControlName="gstPercentage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.productType" for="field_productType">Product Type</label>
+          <select class="form-control" name="productType" formControlName="productType" id="field_productType" data-cy="productType">
+            <option [ngValue]="null">{{ 'aquigenBioApp.ProductType.null' | translate }}</option>
+            <option *ngFor="let productType of productTypeValues" [value]="productType">
+              {{ 'aquigenBioApp.ProductType.' + productType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.lastModified" for="field_lastModified">Last Modified</label>
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.lastModifiedBy" for="field_lastModifiedBy">Last Modified By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="aquigenBioApp.product.rawMaterialOrder" for="field_rawMaterialOrders">Raw Material Order</label>
+          <select
+            class="form-control"
+            id="field_rawMaterialOrders"
+            data-cy="rawMaterialOrder"
+            multiple
+            name="rawMaterialOrders"
+            formControlName="rawMaterialOrders"
+          >
+            <option
+              [ngValue]="getSelectedRawMaterialOrder(rawMaterialOrderOption, editForm.get('rawMaterialOrders')!.value)"
+              *ngFor="let rawMaterialOrderOption of rawMaterialOrdersSharedCollection; trackBy: trackRawMaterialOrderById"
+            >
+              {{ rawMaterialOrderOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.categories" for="field_categories">Categories</label>
+          <select class="form-control" id="field_categories" data-cy="categories" name="categories" formControlName="categories">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                categoriesOption.id === editForm.get('categories')!.value?.id ? editForm.get('categories')!.value : categoriesOption
+              "
+              *ngFor="let categoriesOption of categoriesSharedCollection; trackBy: trackCategoriesById"
+            >
+              {{ categoriesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.unit" for="field_unit">Unit</label>
+          <select class="form-control" id="field_unit" data-cy="unit" name="unit" formControlName="unit">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="unitOption.id === editForm.get('unit')!.value?.id ? editForm.get('unit')!.value : unitOption"
+              *ngFor="let unitOption of unitsSharedCollection; trackBy: trackUnitById"
+            >
+              {{ unitOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="aquigenBioApp.product.securityUser" for="field_securityUser">Security User</label>
+          <select class="form-control" id="field_securityUser" data-cy="securityUser" name="securityUser" formControlName="securityUser">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                securityUserOption.id === editForm.get('securityUser')!.value?.id ? editForm.get('securityUser')!.value : securityUserOption
+              "
+              *ngFor="let securityUserOption of securityUsersSharedCollection; trackBy: trackSecurityUserById"
+            >
+              {{ securityUserOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

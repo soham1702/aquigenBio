@@ -1,0 +1,87 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productTransaction">
+      <h2 data-cy="productTransactionDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.productTransaction.detail.title">Product Transaction</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productTransaction.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.qtySold">Qty Sold</span></dt>
+        <dd>
+          <span>{{ productTransaction.qtySold }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.pricePerUnit">Price Per Unit</span></dt>
+        <dd>
+          <span>{{ productTransaction.pricePerUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.lotNumber">Lot Number</span></dt>
+        <dd>
+          <span>{{ productTransaction.lotNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.expirydate">Expirydate</span></dt>
+        <dd>
+          <span>{{ productTransaction.expirydate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.totalAmount">Total Amount</span></dt>
+        <dd>
+          <span>{{ productTransaction.totalAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.gstAmount">Gst Amount</span></dt>
+        <dd>
+          <span>{{ productTransaction.gstAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.description">Description</span></dt>
+        <dd>
+          <span>{{ productTransaction.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ productTransaction.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ productTransaction.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.warehouse">Warehouse</span></dt>
+        <dd>
+          <div *ngIf="productTransaction.warehouse">
+            <a [routerLink]="['/warehouse', productTransaction.warehouse?.id, 'view']">{{ productTransaction.warehouse?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.product">Product</span></dt>
+        <dd>
+          <span *ngFor="let product of productTransaction.products; let last = last">
+            <a [routerLink]="['/product', product?.id, 'view']">{{ product.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productTransaction.productInventory">Product Inventory</span></dt>
+        <dd>
+          <div *ngIf="productTransaction.productInventory">
+            <a [routerLink]="['/product-inventory', productTransaction.productInventory?.id, 'view']">{{
+              productTransaction.productInventory?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-transaction', productTransaction.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

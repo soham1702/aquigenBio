@@ -1,0 +1,111 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productInventory">
+      <h2 data-cy="productInventoryDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.productInventory.detail.title">Product Inventory</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productInventory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.inwardOutwardDate">Inward Outward Date</span></dt>
+        <dd>
+          <span>{{ productInventory.inwardOutwardDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.inwardQty">Inward Qty</span></dt>
+        <dd>
+          <span>{{ productInventory.inwardQty }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.outwardQty">Outward Qty</span></dt>
+        <dd>
+          <span>{{ productInventory.outwardQty }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.totalQuanity">Total Quanity</span></dt>
+        <dd>
+          <span>{{ productInventory.totalQuanity }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.pricePerUnit">Price Per Unit</span></dt>
+        <dd>
+          <span>{{ productInventory.pricePerUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.lotNo">Lot No</span></dt>
+        <dd>
+          <span>{{ productInventory.lotNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.expiryDate">Expiry Date</span></dt>
+        <dd>
+          <span>{{ productInventory.expiryDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ productInventory.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ productInventory.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ productInventory.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ productInventory.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ productInventory.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ productInventory.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ productInventory.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ productInventory.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.product">Product</span></dt>
+        <dd>
+          <span *ngFor="let product of productInventory.products; let last = last">
+            <a [routerLink]="['/product', product?.id, 'view']">{{ product.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.warehouse">Warehouse</span></dt>
+        <dd>
+          <span *ngFor="let warehouse of productInventory.warehouses; let last = last">
+            <a [routerLink]="['/warehouse', warehouse?.id, 'view']">{{ warehouse.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productInventory.securityUser">Security User</span></dt>
+        <dd>
+          <span *ngFor="let securityUser of productInventory.securityUsers; let last = last">
+            <a [routerLink]="['/security-user', securityUser?.id, 'view']">{{ securityUser.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-inventory', productInventory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

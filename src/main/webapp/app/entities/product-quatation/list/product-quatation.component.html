@@ -1,0 +1,174 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductQuatationHeading">
+    <span jhiTranslate="aquigenBioApp.productQuatation.home.title">Product Quatations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.productQuatation.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product-quatation"
+        [routerLink]="['/product-quatation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="aquigenBioApp.productQuatation.home.createLabel"> Create a new Product Quatation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="productQuatations?.length === 0">
+    <span jhiTranslate="aquigenBioApp.productQuatation.home.notFound">No productQuatations found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="productQuatations && productQuatations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="quatationdate">
+            <span jhiTranslate="aquigenBioApp.productQuatation.quatationdate">Quatationdate</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="totalAmt">
+            <span jhiTranslate="aquigenBioApp.productQuatation.totalAmt">Total Amt</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="gst">
+            <span jhiTranslate="aquigenBioApp.productQuatation.gst">Gst</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="discount">
+            <span jhiTranslate="aquigenBioApp.productQuatation.discount">Discount</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="expectedDelivery">
+            <span jhiTranslate="aquigenBioApp.productQuatation.expectedDelivery">Expected Delivery</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="deliveryAddress">
+            <span jhiTranslate="aquigenBioApp.productQuatation.deliveryAddress">Delivery Address</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="quoValidity">
+            <span jhiTranslate="aquigenBioApp.productQuatation.quoValidity">Quo Validity</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="clientName">
+            <span jhiTranslate="aquigenBioApp.productQuatation.clientName">Client Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="clientMobile">
+            <span jhiTranslate="aquigenBioApp.productQuatation.clientMobile">Client Mobile</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="clientEmail">
+            <span jhiTranslate="aquigenBioApp.productQuatation.clientEmail">Client Email</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="termsAndCondition">
+            <span jhiTranslate="aquigenBioApp.productQuatation.termsAndCondition">Terms And Condition</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="notes">
+            <span jhiTranslate="aquigenBioApp.productQuatation.notes">Notes</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <span jhiTranslate="aquigenBioApp.productQuatation.freeField1">Free Field 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <span jhiTranslate="aquigenBioApp.productQuatation.freeField2">Free Field 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <span jhiTranslate="aquigenBioApp.productQuatation.freeField3">Free Field 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <span jhiTranslate="aquigenBioApp.productQuatation.freeField4">Free Field 4</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <span jhiTranslate="aquigenBioApp.productQuatation.lastModified">Last Modified</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <span jhiTranslate="aquigenBioApp.productQuatation.lastModifiedBy">Last Modified By</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="securityUser.id">
+            <span jhiTranslate="aquigenBioApp.productQuatation.securityUser">Security User</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let productQuatation of productQuatations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/product-quatation', productQuatation.id, 'view']">{{ productQuatation.id }}</a>
+          </td>
+          <td>{{ productQuatation.quatationdate | formatMediumDatetime }}</td>
+          <td>{{ productQuatation.totalAmt }}</td>
+          <td>{{ productQuatation.gst }}</td>
+          <td>{{ productQuatation.discount }}</td>
+          <td>{{ productQuatation.expectedDelivery | formatMediumDatetime }}</td>
+          <td>{{ productQuatation.deliveryAddress }}</td>
+          <td>{{ productQuatation.quoValidity | formatMediumDatetime }}</td>
+          <td>{{ productQuatation.clientName }}</td>
+          <td>{{ productQuatation.clientMobile }}</td>
+          <td>{{ productQuatation.clientEmail }}</td>
+          <td>{{ productQuatation.termsAndCondition }}</td>
+          <td>{{ productQuatation.notes }}</td>
+          <td>{{ productQuatation.freeField1 }}</td>
+          <td>{{ productQuatation.freeField2 }}</td>
+          <td>{{ productQuatation.freeField3 }}</td>
+          <td>{{ productQuatation.freeField4 }}</td>
+          <td>{{ productQuatation.lastModified | formatMediumDatetime }}</td>
+          <td>{{ productQuatation.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="productQuatation.securityUser">
+              <a [routerLink]="['/security-user', productQuatation.securityUser?.id, 'view']">{{ productQuatation.securityUser?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/product-quatation', productQuatation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/product-quatation', productQuatation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(productQuatation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="productQuatations && productQuatations.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
