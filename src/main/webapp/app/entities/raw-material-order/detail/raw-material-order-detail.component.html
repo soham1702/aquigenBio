@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rawMaterialOrder">
+      <h2 data-cy="rawMaterialOrderDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.rawMaterialOrder.detail.title">Raw Material Order</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.pricePerUnit">Price Per Unit</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.pricePerUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.quantityUnit">Quantity Unit</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.quantityUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.deliveryDate">Delivery Date</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.deliveryDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.quantityCheck">Quantity Check</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.quantityCheck }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.orderedOn">Ordered On</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.orderedOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.orderStatus">Order Status</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.orderStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.rawMaterialOrder.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ rawMaterialOrder.freeField4 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/raw-material-order', rawMaterialOrder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
