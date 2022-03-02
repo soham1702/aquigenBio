@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="warehouse">
+      <h2 data-cy="warehouseDetailsHeading"><span jhiTranslate="aquigenBioApp.warehouse.detail.title">Warehouse</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ warehouse.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.warehouseId">Warehouse Id</span></dt>
+        <dd>
+          <span>{{ warehouse.warehouseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.whName">Wh Name</span></dt>
+        <dd>
+          <span>{{ warehouse.whName }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.address">Address</span></dt>
+        <dd>
+          <span>{{ warehouse.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.pincode">Pincode</span></dt>
+        <dd>
+          <span>{{ warehouse.pincode }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.city">City</span></dt>
+        <dd>
+          <span>{{ warehouse.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.state">State</span></dt>
+        <dd>
+          <span>{{ warehouse.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.country">Country</span></dt>
+        <dd>
+          <span>{{ warehouse.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.gSTDetails">G ST Details</span></dt>
+        <dd>
+          <span>{{ warehouse.gSTDetails }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.managerName">Manager Name</span></dt>
+        <dd>
+          <span>{{ warehouse.managerName }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.managerEmail">Manager Email</span></dt>
+        <dd>
+          <span>{{ warehouse.managerEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.managerContact">Manager Contact</span></dt>
+        <dd>
+          <span>{{ warehouse.managerContact }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.contact">Contact</span></dt>
+        <dd>
+          <span>{{ warehouse.contact }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ warehouse.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ warehouse.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ warehouse.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ warehouse.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.warehouse.securityUser">Security User</span></dt>
+        <dd>
+          <span *ngFor="let securityUser of warehouse.securityUsers; let last = last">
+            <a [routerLink]="['/security-user', securityUser?.id, 'view']">{{ securityUser.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/warehouse', warehouse.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

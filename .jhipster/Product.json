@@ -1,0 +1,172 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074122",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "shortName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "chemicalFormula",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hsnNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "materialImage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "productName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alertUnits",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "casNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "catlogNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "molecularWt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "molecularFormula",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "chemicalName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "structureImg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "qrCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "barCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gstPercentage",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "productType",
+      "fieldType": "ProductType",
+      "fieldValues": "RAWMATERIAL (RawMaterial),PRODUCT (Product),BOTH (Both),NONE (None)"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Product",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "categories",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": true,
+      "relationshipName": "categories",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "unit",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": true,
+      "relationshipName": "unit",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "purchaseOrderDetails",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "purchaseOrderDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rawMaterialOrder",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": true,
+      "relationshipName": "rawMaterialOrder",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "quatationDetails",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": false,
+      "relationshipName": "quatationDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": false,
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "productTransaction",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": false,
+      "relationshipName": "productTransaction",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

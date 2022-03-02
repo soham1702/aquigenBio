@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="productQuatation">
+      <h2 data-cy="productQuatationDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.productQuatation.detail.title">Product Quatation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ productQuatation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.quatationdate">Quatationdate</span></dt>
+        <dd>
+          <span>{{ productQuatation.quatationdate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.totalAmt">Total Amt</span></dt>
+        <dd>
+          <span>{{ productQuatation.totalAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.gst">Gst</span></dt>
+        <dd>
+          <span>{{ productQuatation.gst }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.discount">Discount</span></dt>
+        <dd>
+          <span>{{ productQuatation.discount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.expectedDelivery">Expected Delivery</span></dt>
+        <dd>
+          <span>{{ productQuatation.expectedDelivery | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.deliveryAddress">Delivery Address</span></dt>
+        <dd>
+          <span>{{ productQuatation.deliveryAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.quoValidity">Quo Validity</span></dt>
+        <dd>
+          <span>{{ productQuatation.quoValidity | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.clientName">Client Name</span></dt>
+        <dd>
+          <span>{{ productQuatation.clientName }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.clientMobile">Client Mobile</span></dt>
+        <dd>
+          <span>{{ productQuatation.clientMobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.clientEmail">Client Email</span></dt>
+        <dd>
+          <span>{{ productQuatation.clientEmail }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.termsAndCondition">Terms And Condition</span></dt>
+        <dd>
+          <span>{{ productQuatation.termsAndCondition }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.notes">Notes</span></dt>
+        <dd>
+          <span>{{ productQuatation.notes }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ productQuatation.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ productQuatation.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ productQuatation.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ productQuatation.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ productQuatation.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ productQuatation.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.productQuatation.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="productQuatation.securityUser">
+            <a [routerLink]="['/security-user', productQuatation.securityUser?.id, 'view']">{{ productQuatation.securityUser?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product-quatation', productQuatation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

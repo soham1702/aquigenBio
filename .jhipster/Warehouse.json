@@ -1,0 +1,110 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074121",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "warehouse",
+  "fields": [
+    {
+      "fieldName": "warehouseId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "whName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pincode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gSTDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "managerContact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Warehouse",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "warehouse",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "warehouse",
+      "ownerSide": true,
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "productTransaction",
+      "otherEntityRelationshipName": "warehouse",
+      "ownerSide": false,
+      "relationshipName": "productTransaction",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "warehouse",
+      "ownerSide": false,
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

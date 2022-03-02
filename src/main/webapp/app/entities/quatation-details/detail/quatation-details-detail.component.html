@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="quatationDetails">
+      <h2 data-cy="quatationDetailsDetailsHeading">
+        <span jhiTranslate="aquigenBioApp.quatationDetails.detail.title">Quatation Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ quatationDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.availabelStock">Availabel Stock</span></dt>
+        <dd>
+          <span>{{ quatationDetails.availabelStock }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.quantity">Quantity</span></dt>
+        <dd>
+          <span>{{ quatationDetails.quantity }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.ratsPerUnit">Rats Per Unit</span></dt>
+        <dd>
+          <span>{{ quatationDetails.ratsPerUnit }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.totalprice">Totalprice</span></dt>
+        <dd>
+          <span>{{ quatationDetails.totalprice }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.discount">Discount</span></dt>
+        <dd>
+          <span>{{ quatationDetails.discount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ quatationDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ quatationDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ quatationDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ quatationDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ quatationDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ quatationDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.product">Product</span></dt>
+        <dd>
+          <div *ngIf="quatationDetails.product">
+            <a [routerLink]="['/product', quatationDetails.product?.id, 'view']">{{ quatationDetails.product?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.unit">Unit</span></dt>
+        <dd>
+          <div *ngIf="quatationDetails.unit">
+            <a [routerLink]="['/unit', quatationDetails.unit?.id, 'view']">{{ quatationDetails.unit?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.categories">Categories</span></dt>
+        <dd>
+          <div *ngIf="quatationDetails.categories">
+            <a [routerLink]="['/categories', quatationDetails.categories?.id, 'view']">{{ quatationDetails.categories?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.quatationDetails.productQuatation">Product Quatation</span></dt>
+        <dd>
+          <div *ngIf="quatationDetails.productQuatation">
+            <a [routerLink]="['/product-quatation', quatationDetails.productQuatation?.id, 'view']">{{
+              quatationDetails.productQuatation?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/quatation-details', quatationDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
