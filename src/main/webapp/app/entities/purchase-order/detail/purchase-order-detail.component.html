@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="purchaseOrder">
+      <h2 data-cy="purchaseOrderDetailsHeading"><span jhiTranslate="aquigenBioApp.purchaseOrder.detail.title">Purchase Order</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.totalPOAmount">Total PO Amount</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.totalPOAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.totalGSTAmount">Total GST Amount</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.totalGSTAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.expectedDeliveryDate">Expected Delivery Date</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.expectedDeliveryDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.poDate">Po Date</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.poDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.orderStatus">Order Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'aquigenBioApp.Status.' + purchaseOrder.orderStatus }}">{{ purchaseOrder.orderStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ purchaseOrder.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.productInventory">Product Inventory</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrder.productInventory">
+            <a [routerLink]="['/product-inventory', purchaseOrder.productInventory?.id, 'view']">{{
+              purchaseOrder.productInventory?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.warehouse">Warehouse</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrder.warehouse">
+            <a [routerLink]="['/warehouse', purchaseOrder.warehouse?.id, 'view']">{{ purchaseOrder.warehouse?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrder.securityUser">
+            <a [routerLink]="['/security-user', purchaseOrder.securityUser?.id, 'view']">{{ purchaseOrder.securityUser?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="aquigenBioApp.purchaseOrder.rawMaterialOrder">Raw Material Order</span></dt>
+        <dd>
+          <div *ngIf="purchaseOrder.rawMaterialOrder">
+            <a [routerLink]="['/raw-material-order', purchaseOrder.rawMaterialOrder?.id, 'view']">{{
+              purchaseOrder.rawMaterialOrder?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/purchase-order', purchaseOrder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074037",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "quatation_details",
+  "fields": [
+    {
+      "fieldName": "availabelStock",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "ratsPerUnit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalprice",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "QuatationDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "quatationDetails",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "unit",
+      "otherEntityRelationshipName": "quatationDetails",
+      "ownerSide": true,
+      "relationshipName": "unit",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "categories",
+      "otherEntityRelationshipName": "quatationDetails",
+      "ownerSide": true,
+      "relationshipName": "categories",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "productQuatation",
+      "otherEntityRelationshipName": "quatationDetails",
+      "ownerSide": true,
+      "relationshipName": "productQuatation",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

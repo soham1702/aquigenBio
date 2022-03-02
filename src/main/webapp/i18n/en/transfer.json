@@ -1,0 +1,37 @@
+{
+  "aquigenBioApp": {
+    "transfer": {
+      "home": {
+        "title": "Transfers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Transfer",
+        "createOrEditLabel": "Create or edit a Transfer",
+        "notFound": "No Transfers found"
+      },
+      "created": "A new Transfer is created with identifier {{ param }}",
+      "updated": "A Transfer is updated with identifier {{ param }}",
+      "deleted": "A Transfer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Transfer {{ id }}?"
+      },
+      "detail": {
+        "title": "Transfer"
+      },
+      "id": "ID",
+      "tranferDate": "Tranfer Date",
+      "comment": "Comment",
+      "isApproved": "Is Approved",
+      "isRecieved": "Is Recieved",
+      "status": "Status",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "securityUser": "Security User",
+      "transferDetails": "Transfer Details",
+      "tranferDetailsApprovals": "Tranfer Details Approvals",
+      "tranferRecieved": "Tranfer Recieved",
+      "productInventory": "Product Inventory"
+    }
+  }
+}

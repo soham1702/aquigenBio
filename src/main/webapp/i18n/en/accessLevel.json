@@ -1,0 +1,9 @@
+{
+  "aquigenBioApp": {
+    "AccessLevel": {
+      "null": "",
+      "ADMIN": "Admin",
+      "USER": "User"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074034",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product_transaction",
+  "fields": [
+    {
+      "fieldName": "qtySold",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "pricePerUnit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lotNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expirydate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "totalAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "gstAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ProductTransaction",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "productTransaction",
+      "ownerSide": true,
+      "relationshipName": "warehouse",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "productTransaction",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "otherEntityRelationshipName": "productTransaction",
+      "ownerSide": false,
+      "relationshipName": "securityUser",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "productTransaction",
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

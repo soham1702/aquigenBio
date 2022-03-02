@@ -1,0 +1,63 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074027",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tranfer_recieved",
+  "fields": [
+    {
+      "fieldName": "transferDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "qtyTransfered",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "qtyReceived",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "TranferRecieved",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "transfer",
+      "otherEntityRelationshipName": "tranferRecieved",
+      "relationshipName": "transfer",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

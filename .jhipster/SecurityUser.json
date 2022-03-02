@@ -1,0 +1,165 @@
+{
+  "applications": "*",
+  "changelogDate": "20220302074035",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "security_user",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "designation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "businessTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gSTDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "login",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "passwordHash",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activated",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "langKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "activationKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resetKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resetDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "oneTimePassword",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otpExpiryTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "SecurityUser",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "productTransaction",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": true,
+      "relationshipName": "productTransaction",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "securityUser",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "securityUser",
+      "relationshipName": "product",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "securityPermission",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": true,
+      "relationshipName": "securityPermission",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "securityRole",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": true,
+      "relationshipName": "securityRole",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "productQuatation",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": false,
+      "relationshipName": "productQuatation",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "transfer",
+      "otherEntityRelationshipName": "securityUser",
+      "relationshipName": "transfer",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "consumptionDetails",
+      "otherEntityRelationshipName": "securityUser",
+      "relationshipName": "consumptionDetails",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "productInventory",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": false,
+      "relationshipName": "productInventory",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "securityUser",
+      "ownerSide": false,
+      "relationshipName": "warehouse",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
