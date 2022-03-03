@@ -18,6 +18,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 import tech.jhipster.config.JHipsterProperties;
 
 @Component
@@ -32,6 +33,8 @@ public class TokenProvider {
     private final Key key;
 
     private final JwtParser jwtParser;
+
+    public HashMap<String, String> myHash = new HashMap<String, String>();
 
     private final long tokenValidityInMilliseconds;
 
@@ -96,8 +99,29 @@ public class TokenProvider {
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
+    public User getUser(String token) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
+
+        Collection<? extends GrantedAuthority> authorities = Arrays
+            .stream(claims.get(AUTHORITIES_KEY).toString().split(","))
+            .map(SimpleGrantedAuthority::new)
+            .collect(Collectors.toList());
+
+        User principal = new User(claims.getSubject(), "", authorities);
+
+        return principal;
+    }
+
     public boolean validateToken(String authToken) {
+        User user = getUser(authToken);
         try {
+            if (!StringUtils.isEmpty(user.getUsername())) {
+                if (myHash.get(user.getUsername()) == null) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
             jwtParser.parseClaimsJws(authToken);
 
             return true;
