@@ -9,6 +9,6 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = { SecurityUserMapper.class })
 public interface UserAccessMapper extends EntityMapper<UserAccessDTO, UserAccess> {
-    @Mapping(target = "securityUser", source = "securityUser", qualifiedByName = "login")
+    @Mapping(target = "securityUser.id", source = "securityUser.id")
     UserAccessDTO toDto(UserAccess s);
 }
